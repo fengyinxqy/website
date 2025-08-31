@@ -3,7 +3,9 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Page Header -->
       <div class="text-center mb-12">
-        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">关于我</h1>
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          关于我
+        </h1>
         <p class="text-lg text-gray-600 dark:text-gray-300">
           一名热爱技术的前端开发者，喜欢分享和学习
         </p>
@@ -21,7 +23,9 @@
             <span class="text-4xl font-bold text-primary-600 dark:text-primary-400">Dev</span>
           </div>
           <div class="flex-1">
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">前端开发者</h2>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              前端开发者
+            </h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4">
               专注于现代Web开发技术，热爱Vue.js、React、TypeScript等前端技术栈。
               喜欢通过博客记录学习过程和技术实践，与大家分享开发经验和解决方案。
@@ -53,10 +57,14 @@
 
         <!-- Skills Section -->
         <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">技术栈</h2>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            技术栈
+          </h2>
           <div class="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">前端技术</h3>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                前端技术
+              </h3>
               <div class="space-y-3">
                 <div
                   v-for="skill in frontendSkills"
@@ -74,7 +82,9 @@
               </div>
             </div>
             <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">其他技术</h3>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                其他技术
+              </h3>
               <div class="space-y-3">
                 <div
                   v-for="skill in otherSkills"
@@ -96,33 +106,55 @@
 
         <!-- Blog Stats -->
         <div class="mb-12">
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">博客统计</h2>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            博客统计
+          </h2>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div class="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">12</div>
-              <div class="text-sm text-gray-600 dark:text-gray-300">文章总数</div>
+              <div class="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
+                12
+              </div>
+              <div class="text-sm text-gray-600 dark:text-gray-300">
+                文章总数
+              </div>
             </div>
             <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">1.2K</div>
-              <div class="text-sm text-gray-600 dark:text-gray-300">总阅读量</div>
+              <div class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">
+                1.2K
+              </div>
+              <div class="text-sm text-gray-600 dark:text-gray-300">
+                总阅读量
+              </div>
             </div>
             <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">6</div>
-              <div class="text-sm text-gray-600 dark:text-gray-300">分类数量</div>
+              <div class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                6
+              </div>
+              <div class="text-sm text-gray-600 dark:text-gray-300">
+                分类数量
+              </div>
             </div>
             <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-              <div class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">24</div>
-              <div class="text-sm text-gray-600 dark:text-gray-300">标签数量</div>
+              <div class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+                24
+              </div>
+              <div class="text-sm text-gray-600 dark:text-gray-300">
+                标签数量
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Contact Section -->
         <div>
-          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">联系我</h2>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+            联系我
+          </h2>
           <div class="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">社交媒体</h3>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                社交媒体
+              </h3>
               <div class="space-y-3">
                 <a
                   href="#"
@@ -148,7 +180,9 @@
               </div>
             </div>
             <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">其他方式</h3>
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                其他方式
+              </h3>
               <div class="space-y-3">
                 <div class="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
                   <el-icon size="20">
@@ -173,7 +207,13 @@
         <p class="text-gray-600 dark:text-gray-300 mb-6">
           对某个技术话题感兴趣？或者想要讨论合作机会？
         </p>
-        <el-button type="primary" size="large" class="!px-8"> 发送消息 </el-button>
+        <el-button
+          type="primary"
+          size="large"
+          class="!px-8"
+        >
+          发送消息
+        </el-button>
       </div>
     </div>
   </div>

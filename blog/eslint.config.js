@@ -21,9 +21,7 @@ export default [
     },
     rules: {
       'vue/multi-word-component-names': 'off',
-      'vue/no-v-html': 'off',
-      'vue/require-default-prop': 'off',
-      'vue/require-explicit-emits': 'off',
+      'vue/no-v-html': 'off'
     },
   },
   {
