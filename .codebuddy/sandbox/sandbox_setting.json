@@ -1,0 +1,20 @@
+{
+  "path": "d:\\programing\\website\\blog\\dist",
+  "desc": "这是一个基于Vue 3 + Vite + Element Plus的前端博客项目，包含响应式设计、暗黑模式、移动端适配等功能",
+  "id": "762ccdb860014b47a9c45122101c49d3",
+  "data": {
+    "spaceKey": "762ccdb860014b47a9c45122101c49d3",
+    "connections": {
+      "webIDE": "https://762ccdb860014b47a9c45122101c49d3.codebuddy.cloudstudio.club",
+      "preview": "https://762ccdb860014b47a9c45122101c49d3--{port}.codebuddy.cloudstudio.club",
+      "api": "https://762ccdb860014b47a9c45122101c49d3--api.codebuddy.cloudstudio.club",
+      "pty": "https://762ccdb860014b47a9c45122101c49d3--pty.codebuddy.cloudstudio.club"
+    }
+  },
+  "config": {
+    "api": "https://762ccdb860014b47a9c45122101c49d3--api.codebuddy.cloudstudio.club",
+    "pty": "https://762ccdb860014b47a9c45122101c49d3--pty.codebuddy.cloudstudio.club",
+    "region": "ap-shanghai",
+    "spaceKey": "762ccdb860014b47a9c45122101c49d3"
+  }
+}

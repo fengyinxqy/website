@@ -1,38 +1,41 @@
 <script setup>
-import AppHeader from '@/components/layout/AppHeader.vue'
-import MobileMenu from '@/components/layout/MobileMenu.vue'
-import { useUIStore } from '@/stores/useUIStore'
-import { ref,onMounted } from 'vue'
+import AppHeader from '@/components/layout/AppHeader.vue';
+import MobileMenu from '@/components/layout/MobileMenu.vue';
+import { useUIStore } from '@/stores/useUIStore';
+import { ref, onMounted } from 'vue';
 
-const uiStore = useUIStore()
-const isMobileMenuOpen = ref(false)
+const uiStore = useUIStore();
+const isMobileMenuOpen = ref(false);
 
 // 初始化暗黑模式
 onMounted(() => {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   if (prefersDark) {
-    uiStore.toggleDarkMode()
+    uiStore.toggleDarkMode();
   }
-})
+});
 
 const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value
-}
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
 
 const closeMobileMenu = () => {
-  isMobileMenuOpen.value = false
-}
+  isMobileMenuOpen.value = false;
+};
 </script>
 
 <template>
-  <div :class="{ 'dark': uiStore.isDarkMode }">
+  <div :class="{ dark: uiStore.isDarkMode }">
     <el-config-provider>
       <div class="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
         <AppHeader @toggle-mobile-menu="toggleMobileMenu" />
         <main>
           <router-view />
         </main>
-        <MobileMenu :is-open="isMobileMenuOpen" @close="closeMobileMenu" />
+        <MobileMenu
+          :is-open="isMobileMenuOpen"
+          @close="closeMobileMenu"
+        />
       </div>
     </el-config-provider>
   </div>
@@ -46,7 +49,10 @@ const closeMobileMenu = () => {
 
 /* 暗黑模式过渡动画 */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
 }
 
 /* 滚动条样式 */

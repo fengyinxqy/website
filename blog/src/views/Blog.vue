@@ -12,7 +12,9 @@
       </div>
 
       <!-- Search and Filters -->
-      <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 mb-8">
+      <div
+        class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 mb-8"
+      >
         <div class="flex flex-col md:flex-row gap-4 items-center">
           <!-- Search Input -->
           <el-input
@@ -35,7 +37,10 @@
             class="w-full md:w-48"
             @change="handleCategoryChange"
           >
-            <el-option label="所有分类" value="" />
+            <el-option
+              label="所有分类"
+              value=""
+            />
             <el-option
               v-for="category in categories"
               :key="category"
@@ -52,7 +57,10 @@
             class="w-full md:w-48"
             @change="handleTagChange"
           >
-            <el-option label="所有标签" value="" />
+            <el-option
+              label="所有标签"
+              value=""
+            />
             <el-option
               v-for="tag in tags"
               :key="tag"
@@ -84,7 +92,9 @@
         >
           <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
             <div class="flex items-center space-x-4 mb-3 md:mb-0">
-              <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-full">
+              <span
+                class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-full"
+              >
                 {{ article.category }}
               </span>
               <span class="text-sm text-gray-500 dark:text-gray-400">
@@ -99,7 +109,9 @@
             </span>
           </div>
 
-          <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-3 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+          <h2
+            class="text-xl font-semibold text-gray-900 dark:text-white mb-3 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+          >
             {{ article.title }}
           </h2>
 
@@ -117,7 +129,11 @@
                 {{ tag }}
               </span>
             </div>
-            <el-button type="primary" text size="small">
+            <el-button
+              type="primary"
+              text
+              size="small"
+            >
               阅读更多
               <el-icon><ArrowRight /></el-icon>
             </el-button>
@@ -129,14 +145,22 @@
           v-if="filteredArticles.length === 0"
           class="bg-white dark:bg-gray-800 rounded-lg p-12 text-center border border-gray-200 dark:border-gray-700"
         >
-          <el-icon class="text-gray-400 dark:text-gray-500 mb-4" size="48"><DocumentDelete /></el-icon>
+          <el-icon
+            class="text-gray-400 dark:text-gray-500 mb-4"
+            size="48"
+          >
+            <DocumentDelete />
+          </el-icon>
           <h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">
             没有找到相关文章
           </h3>
           <p class="text-gray-500 dark:text-gray-400 mb-4">
             尝试调整搜索关键词或筛选条件
           </p>
-          <el-button type="primary" @click="clearFilters">
+          <el-button
+            type="primary"
+            @click="clearFilters"
+          >
             清除所有筛选
           </el-button>
         </div>
@@ -158,60 +182,69 @@
 </template>
 
 <script setup>
-import { useBlogStore } from '@/stores/useBlogStore'
-import { storeToRefs } from 'pinia'
-import { computed, ref, watch } from 'vue'
+import { useBlogStore } from '@/stores/useBlogStore';
+import { storeToRefs } from 'pinia';
+import { computed, ref, watch } from 'vue';
 
-const blogStore = useBlogStore()
-const { filteredArticles, categories, tags } = storeToRefs(blogStore)
+const blogStore = useBlogStore();
+const { filteredArticles, categories, tags } = storeToRefs(blogStore);
 
-const searchQuery = ref('')
-const selectedCategory = ref('')
-const selectedTag = ref('')
+const searchQuery = ref('');
+const selectedCategory = ref('');
+const selectedTag = ref('');
 
 const hasActiveFilters = computed(() => {
-  return searchQuery.value || selectedCategory.value || selectedTag.value
-})
+  return searchQuery.value || selectedCategory.value || selectedTag.value;
+});
 
 const handleSearch = () => {
-  blogStore.searchArticles(searchQuery.value)
-}
+  blogStore.searchArticles(searchQuery.value);
+};
 
 const handleCategoryChange = (category) => {
-  blogStore.filterByCategory(category)
-}
+  blogStore.filterByCategory(category);
+};
 
 const handleTagChange = (tag) => {
-  blogStore.filterByTag(tag)
-}
+  blogStore.filterByTag(tag);
+};
 
 const clearFilters = () => {
-  searchQuery.value = ''
-  selectedCategory.value = ''
-  selectedTag.value = ''
-  blogStore.clearFilters()
-}
+  searchQuery.value = '';
+  selectedCategory.value = '';
+  selectedTag.value = '';
+  blogStore.clearFilters();
+};
 
 const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString('zh-CN', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
-  })
-}
+    day: 'numeric',
+  });
+};
 
 // 同步store状态到本地refs
-watch(() => blogStore.searchQuery, (value) => {
-  searchQuery.value = value
-})
+watch(
+  () => blogStore.searchQuery,
+  (value) => {
+    searchQuery.value = value;
+  }
+);
 
-watch(() => blogStore.selectedCategory, (value) => {
-  selectedCategory.value = value
-})
+watch(
+  () => blogStore.selectedCategory,
+  (value) => {
+    selectedCategory.value = value;
+  }
+);
 
-watch(() => blogStore.selectedTag, (value) => {
-  selectedTag.value = value
-})
+watch(
+  () => blogStore.selectedTag,
+  (value) => {
+    selectedTag.value = value;
+  }
+);
 </script>
 
 <style scoped>

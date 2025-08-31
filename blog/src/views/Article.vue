@@ -2,9 +2,9 @@
   <div class="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Back Button -->
-      <el-button 
-        type="primary" 
-        text 
+      <el-button
+        type="primary"
+        text
         class="mb-6"
         @click="$router.back()"
       >
@@ -13,11 +13,16 @@
       </el-button>
 
       <!-- Article Content -->
-      <div v-if="article" class="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-sm border border-gray-200 dark:border-gray-700">
+      <div
+        v-if="article"
+        class="bg-white dark:bg-gray-800 rounded-lg p-8 shadow-sm border border-gray-200 dark:border-gray-700"
+      >
         <!-- Article Header -->
         <div class="mb-8">
           <div class="flex items-center justify-between mb-4">
-            <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-full">
+            <span
+              class="px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm font-medium rounded-full"
+            >
               {{ article.category }}
             </span>
             <div class="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
@@ -49,7 +54,9 @@
         <!-- Article Body -->
         <div class="prose prose-lg max-w-none dark:prose-invert prose-gray">
           <!-- This would be your actual article content -->
-          <div class="border-l-4 border-primary-500 bg-primary-50 dark:bg-primary-900/20 pl-6 py-4 mb-8">
+          <div
+            class="border-l-4 border-primary-500 bg-primary-50 dark:bg-primary-900/20 pl-6 py-4 mb-8"
+          >
             <p class="text-primary-700 dark:text-primary-300 font-medium">
               这是一篇示例文章。在实际项目中，这里会显示从Markdown或其他格式解析的真实文章内容。
             </p>
@@ -57,7 +64,7 @@
 
           <h2>文章内容示例</h2>
           <p>这里应该是文章的实际内容。在实际部署中，您可以通过以下方式加载内容：</p>
-          
+
           <h3>1. Markdown文件</h3>
           <p>将文章保存为Markdown文件，使用markdown-it或其他库进行解析：</p>
           <pre><code class="language-javascript">import markdownIt from 'markdown-it'
@@ -79,7 +86,9 @@ export async function getStaticProps() {
 }</code></pre>
 
           <blockquote>
-            <p>提示：根据您的需求选择合适的文章存储和渲染方式。对于个人博客，静态生成通常是最佳选择。</p>
+            <p>
+              提示：根据您的需求选择合适的文章存储和渲染方式。对于个人博客，静态生成通常是最佳选择。
+            </p>
           </blockquote>
         </div>
 
@@ -89,28 +98,36 @@ export async function getStaticProps() {
             <div class="flex items-center space-x-4">
               <span class="text-sm text-gray-500 dark:text-gray-400">分享这篇文章：</span>
               <div class="flex space-x-2">
-                <el-button type="primary" text size="small">
+                <el-button
+                  type="primary"
+                  text
+                  size="small"
+                >
                   <el-icon><Share /></el-icon>
                 </el-button>
-                <el-button type="success" text size="small">
+                <el-button
+                  type="success"
+                  text
+                  size="small"
+                >
                   <el-icon><Link /></el-icon>
                 </el-button>
               </div>
             </div>
-            
+
             <div class="flex items-center space-x-4">
-              <el-button 
-                type="primary" 
-                text 
+              <el-button
+                type="primary"
+                text
                 size="small"
                 @click="handleLike"
               >
                 <el-icon><Star /></el-icon>
                 点赞
               </el-button>
-              <el-button 
-                type="primary" 
-                text 
+              <el-button
+                type="primary"
+                text
                 size="small"
                 @click="handleBookmark"
               >
@@ -124,7 +141,9 @@ export async function getStaticProps() {
 
       <!-- Related Articles -->
       <div class="mt-12">
-        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">相关文章</h2>
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          相关文章
+        </h2>
         <div class="grid md:grid-cols-2 gap-6">
           <div
             v-for="relatedArticle in relatedArticles"
@@ -132,7 +151,9 @@ export async function getStaticProps() {
             class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow cursor-pointer"
             @click="$router.push(`/article/${relatedArticle.id}`)"
           >
-            <span class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-xs font-medium rounded mb-3 inline-block">
+            <span
+              class="px-2 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-xs font-medium rounded mb-3 inline-block"
+            >
               {{ relatedArticle.category }}
             </span>
             <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
@@ -146,55 +167,66 @@ export async function getStaticProps() {
       </div>
 
       <!-- Loading State -->
-      <div v-if="loading" class="text-center py-12">
-        <el-icon class="text-gray-400 dark:text-gray-500 mb-4" size="48"><Loading /></el-icon>
-        <p class="text-gray-500 dark:text-gray-400">加载中...</p>
+      <div
+        v-if="loading"
+        class="text-center py-12"
+      >
+        <el-icon
+          class="text-gray-400 dark:text-gray-500 mb-4"
+          size="48"
+        >
+          <Loading />
+        </el-icon>
+        <p class="text-gray-500 dark:text-gray-400">
+          加载中...
+        </p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { useBlogStore } from '@/stores/useBlogStore'
-import { storeToRefs } from 'pinia'
-import { computed, onMounted, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { useBlogStore } from '@/stores/useBlogStore';
+import { storeToRefs } from 'pinia';
+import { computed, onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
+import { ElMessage } from 'element-plus';
 
-const route = useRoute()
-const blogStore = useBlogStore()
-const { currentArticle, articles } = storeToRefs(blogStore)
+const route = useRoute();
+const blogStore = useBlogStore();
+const { articles } = storeToRefs(blogStore);
 
-const article = ref(null)
-const loading = ref(true)
+const article = ref(null);
+const loading = ref(true);
 
 onMounted(async () => {
-  const articleId = route.params.id
-  article.value = blogStore.getArticleById(articleId)
-  loading.value = false
-})
+  const articleId = route.params.id;
+  article.value = blogStore.getArticleById(articleId);
+  loading.value = false;
+});
 
 const relatedArticles = computed(() => {
-  if (!article.value) return []
+  if (!article.value) return [];
   return articles.value
-    .filter(a => a.id !== article.value.id && a.category === article.value.category)
-    .slice(0, 2)
-})
+    .filter((a) => a.id !== article.value.id && a.category === article.value.category)
+    .slice(0, 2);
+});
 
 const formatDate = (dateString) => {
   return new Date(dateString).toLocaleDateString('zh-CN', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
-  })
-}
+    day: 'numeric',
+  });
+};
 
 const handleLike = () => {
-  ElMessage.success('感谢您的点赞！')
-}
+  ElMessage.success('感谢您的点赞！');
+};
 
 const handleBookmark = () => {
-  ElMessage.success('文章已收藏！')
-}
+  ElMessage.success('文章已收藏！');
+};
 </script>
 
 <style scoped>
@@ -213,19 +245,19 @@ const handleBookmark = () => {
   color: #e5e7eb; /* 暗黑模式下的文本颜色 */
 }
 
-.prose :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"] *)) {
+.prose :where(h1, h2, h3, h4, h5, h6):not(:where([class~='not-prose'] *)) {
   color: inherit;
   margin-top: 2em;
   margin-bottom: 1em;
 }
 
-.prose :where(p):not(:where([class~="not-prose"] *)) {
+.prose :where(p):not(:where([class~='not-prose'] *)) {
   margin-top: 1.25em;
   margin-bottom: 1.25em;
   color: inherit;
 }
 
-.prose :where(pre):not(:where([class~="not-prose"] *)) {
+.prose :where(pre):not(:where([class~='not-prose'] *)) {
   background-color: #f8f9fa;
   padding: 1rem;
   border-radius: 0.375rem;
@@ -233,11 +265,11 @@ const handleBookmark = () => {
   overflow-x: auto;
 }
 
-.dark .prose :where(pre):not(:where([class~="not-prose"] *)) {
+.dark .prose :where(pre):not(:where([class~='not-prose'] *)) {
   background-color: #1f2937;
 }
 
-.prose :where(code):not(:where([class~="not-prose"] *)) {
+.prose :where(code):not(:where([class~='not-prose'] *)) {
   color: #1f2937;
   background-color: #f3f4f6;
   padding: 0.125rem 0.25rem;
@@ -245,12 +277,12 @@ const handleBookmark = () => {
   font-size: 0.875em;
 }
 
-.dark .prose :where(code):not(:where([class~="not-prose"] *)) {
+.dark .prose :where(code):not(:where([class~='not-prose'] *)) {
   color: #e5e7eb;
   background-color: #374151;
 }
 
-.prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+.prose :where(blockquote):not(:where([class~='not-prose'] *)) {
   border-left-color: rgb(59 130 246);
   background-color: rgb(239 246 255);
   padding: 1rem;
@@ -258,7 +290,7 @@ const handleBookmark = () => {
   margin: 1.5em 0;
 }
 
-.dark .prose :where(blockquote):not(:where([class~="not-prose"] *)) {
+.dark .prose :where(blockquote):not(:where([class~='not-prose'] *)) {
   background-color: rgb(30 58 138 / 0.2);
   border-left-color: rgb(96 165 250);
   color: #e5e7eb;

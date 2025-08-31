@@ -1,20 +1,20 @@
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { defineStore } from 'pinia';
+import { ref } from 'vue';
 
 export const useUIStore = defineStore('ui', () => {
-  const isDarkMode = ref(false)
-  
+  const isDarkMode = ref(false);
+
   const toggleDarkMode = () => {
-    isDarkMode.value = !isDarkMode.value
+    isDarkMode.value = !isDarkMode.value;
     if (isDarkMode.value) {
-      document.documentElement.classList.add('dark')
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove('dark');
     }
-  }
+  };
 
   return {
     isDarkMode,
-    toggleDarkMode
-  }
-})
+    toggleDarkMode,
+  };
+});

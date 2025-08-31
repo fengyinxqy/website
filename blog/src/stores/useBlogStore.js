@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { defineStore } from 'pinia';
+import { ref, computed } from 'vue';
 
 // 模拟博客数据
 const mockArticles = [
@@ -12,7 +12,7 @@ const mockArticles = [
     tags: ['Vue', 'JavaScript', '前端'],
     createdAt: '2024-01-15',
     readTime: 5,
-    views: 128
+    views: 128,
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const mockArticles = [
     tags: ['JavaScript', '异步', 'Promise'],
     createdAt: '2024-01-10',
     readTime: 8,
-    views: 89
+    views: 89,
   },
   {
     id: 3,
@@ -34,73 +34,75 @@ const mockArticles = [
     tags: ['CSS', 'Tailwind', '前端'],
     createdAt: '2024-01-05',
     readTime: 6,
-    views: 156
-  }
-]
+    views: 156,
+  },
+];
 
 export const useBlogStore = defineStore('blog', () => {
-  const articles = ref(mockArticles)
-  const currentArticle = ref(null)
-  const searchQuery = ref('')
-  const selectedCategory = ref('')
-  const selectedTag = ref('')
+  const articles = ref(mockArticles);
+  const currentArticle = ref(null);
+  const searchQuery = ref('');
+  const selectedCategory = ref('');
+  const selectedTag = ref('');
 
   // 获取所有分类
   const categories = computed(() => {
-    return [...new Set(articles.value.map(article => article.category))]
-  })
+    return [...new Set(articles.value.map((article) => article.category))];
+  });
 
   // 获取所有标签
   const tags = computed(() => {
-    const allTags = articles.value.flatMap(article => article.tags)
-    return [...new Set(allTags)]
-  })
+    const allTags = articles.value.flatMap((article) => article.tags);
+    return [...new Set(allTags)];
+  });
 
   // 过滤后的文章列表
   const filteredArticles = computed(() => {
-    return articles.value.filter(article => {
-      const matchesSearch = article.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-                          article.content.toLowerCase().includes(searchQuery.value.toLowerCase())
-      const matchesCategory = !selectedCategory.value || article.category === selectedCategory.value
-      const matchesTag = !selectedTag.value || article.tags.includes(selectedTag.value)
-      
-      return matchesSearch && matchesCategory && matchesTag
-    })
-  })
+    return articles.value.filter((article) => {
+      const matchesSearch =
+        article.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+        article.content.toLowerCase().includes(searchQuery.value.toLowerCase());
+      const matchesCategory =
+        !selectedCategory.value || article.category === selectedCategory.value;
+      const matchesTag = !selectedTag.value || article.tags.includes(selectedTag.value);
+
+      return matchesSearch && matchesCategory && matchesTag;
+    });
+  });
 
   // 获取文章详情
   const getArticleById = (id) => {
-    const article = articles.value.find(article => article.id === parseInt(id))
+    const article = articles.value.find((article) => article.id === parseInt(id));
     if (article) {
-      article.views++ // 增加阅读量
-      currentArticle.value = article
+      article.views++; // 增加阅读量
+      currentArticle.value = article;
     }
-    return article
-  }
+    return article;
+  };
 
   // 搜索文章
   const searchArticles = (query) => {
-    searchQuery.value = query
-  }
+    searchQuery.value = query;
+  };
 
   // 按分类过滤
   const filterByCategory = (category) => {
-    selectedCategory.value = category
-    selectedTag.value = ''
-  }
+    selectedCategory.value = category;
+    selectedTag.value = '';
+  };
 
   // 按标签过滤
   const filterByTag = (tag) => {
-    selectedTag.value = tag
-    selectedCategory.value = ''
-  }
+    selectedTag.value = tag;
+    selectedCategory.value = '';
+  };
 
   // 清除所有过滤器
   const clearFilters = () => {
-    searchQuery.value = ''
-    selectedCategory.value = ''
-    selectedTag.value = ''
-  }
+    searchQuery.value = '';
+    selectedCategory.value = '';
+    selectedTag.value = '';
+  };
 
   return {
     articles,
@@ -115,6 +117,6 @@ export const useBlogStore = defineStore('blog', () => {
     searchArticles,
     filterByCategory,
     filterByTag,
-    clearFilters
-  }
-})
+    clearFilters,
+  };
+});
